@@ -1,0 +1,477 @@
+﻿
+:root {
+    --red: #9b1c1c; /* was #D73535 — darker crimson */
+    --red-dark: #7f1d1d; /* was #b52b2b */
+    --red-deeper: #5c1010; /* was #8c1f1f */
+    --red-soft: #fff0f0;
+    --red-mid: #fad4d4;
+    --ink: #111827;
+    --ink-muted: #6b7280;
+    --surface: #ffffff;
+    --bg: #f4f5f7;
+    --border: #e5e7eb;
+    --radius: 14px;
+    --shadow: 0 2px 16px rgba(0,0,0,.07);
+    --shadow-lg: 0 8px 32px rgba(0,0,0,.12);
+}
+
+
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+  padding-top: 50px;
+}
+
+.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
+  color: var(--bs-secondary-color);
+  text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
+  text-align: start;
+}
+
+/* ============================= */
+/* NAVBAR BASE */
+/* ============================= */
+.custom-navbar {
+    background-color: #9b1c1c !important;
+}
+
+/* ============================= */
+/* OFFCANVAS BASE */
+/* ============================= */
+.custom-navbar .offcanvas {
+    background-color: #ffffff !important;
+}
+
+/* Offcanvas title */
+.custom-navbar .offcanvas-title {
+    color: #111 !important;
+}
+
+/* Close (X) button */
+.custom-navbar .btn-close {
+    filter: none !important;       /* remove white filter */
+    opacity: 0.8;
+}
+
+.custom-navbar .btn-close:hover {
+    opacity: 1;
+}
+
+/* ============================= */
+/* OFFCANVAS NAV ITEMS */
+/* ============================= */
+
+/* Base li styling */
+.custom-navbar .offcanvas .nav-item {
+    border-radius: 6px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+/* Link text */
+.custom-navbar .offcanvas .nav-link {
+    color: #333 !important;
+    padding: 10px 14px;
+}
+
+/* HOVER EFFECT — LI BACKGROUND */
+.custom-navbar .offcanvas .nav-item:hover {
+   background-color: #9b1c1c;
+}
+
+/* Keep text readable on hover */
+.custom-navbar .offcanvas .nav-item:hover .nav-link {
+    background-color: transparent;
+    color: #ffffff !important;
+}
+
+/* ============================= */
+/* DROPDOWN (OPTIONAL) */
+/* ============================= */
+.custom-navbar .dropdown-menu {
+    background-color: #ffffff;
+}
+
+.custom-navbar .dropdown-item {
+    color: #333;
+}
+
+.custom-navbar .dropdown-item:hover {
+   background-color: #9b1c1c; 
+    color: #ffffff;
+}
+
+.btn.btn-red {
+    background-color: #9b1c1c; /* was #c1121f */
+    border-color: #9b1c1c;
+    color: #fff;
+}
+
+    .btn.btn-red:hover,
+    .btn.btn-red:focus {
+        background-color: #7f1d1d; /* was #a50f1a */
+        border-color: #7f1d1d;
+        color: #fff;
+    }
+
+/* Pagination (Views/Shared/_Pager.cshtml) */
+.lc-pager .page-link {
+    color: var(--red);
+    border-color: var(--border);
+    min-width: 2rem;
+    text-align: center;
+}
+
+    .lc-pager .page-link:hover {
+        background-color: var(--red-soft);
+        color: var(--red);
+    }
+
+    .lc-pager .page-link:focus {
+        box-shadow: 0 0 0 .2rem var(--red-mid);
+    }
+
+.lc-pager .page-item.active .page-link {
+    background-color: var(--red);
+    border-color: var(--red);
+    color: #fff;
+}
+
+.lc-pager .page-item.disabled .page-link {
+    color: var(--ink-muted);
+}
+
+.footer {
+    background-color: #f8f9fa;
+}
+
+.htmx-indicator {
+    display: none;
+}
+
+.htmx-request .htmx-indicator {
+    display: table-row;
+}
+
+
+/* Administrator tabs (Views/Admin/_AdminTabs.cshtml) */
+.lc-admin-tabs .nav-link {
+    color: var(--ink-muted);
+    border: none;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    font-size: .85rem;
+}
+
+    .lc-admin-tabs .nav-link:hover {
+        color: var(--red);
+        border-bottom-color: var(--red-mid);
+    }
+
+    .lc-admin-tabs .nav-link.active {
+        color: var(--red);
+        background: transparent;
+        border-bottom-color: var(--red);
+    }
+
+/* ── Dashboard (Views/Home/Index.cshtml) ──
+   Neutral cards and ink; color only where it carries meaning
+   (teal = chart data, amber = pending, green = acknowledged). */
+.lc-dash {
+    background-color: var(--bg);
+}
+
+.lc-dash-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -.01em;
+}
+
+.lc-dash-card-title {
+    font-size: .95rem;
+    font-weight: 600;
+    color: var(--ink);
+}
+
+.lc-dash-muted {
+    color: var(--ink-muted);
+}
+
+.lc-dash-label {
+    display: block;
+    font-size: .72rem;
+    font-weight: 600;
+    color: var(--ink-muted);
+    margin-bottom: .3rem;
+}
+
+.lc-dash-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.1rem 1.25rem;
+    box-shadow: 0 1px 2px rgba(17, 24, 39, .04);
+}
+
+.lc-dash-filters {
+    padding: .9rem 1.25rem;
+}
+
+.lc-dash-input {
+    border-color: var(--border);
+    color: var(--ink);
+    font-size: .82rem;
+}
+
+    .lc-dash-input:focus {
+        border-color: #9ca3af;
+        box-shadow: 0 0 0 .2rem rgba(17, 24, 39, .08);
+    }
+
+/* .btn.x so it wins over Bootstrap's own .btn rule regardless of load order */
+.btn.lc-dash-btn-outline {
+    border: 1px solid #d1d5db;
+    background: #fff;
+    color: var(--ink);
+    font-weight: 600;
+}
+
+    .btn.lc-dash-btn-outline:hover,
+    .btn.lc-dash-btn-outline:focus {
+        background: #f3f4f6;
+        border-color: #d1d5db;
+        color: var(--ink);
+    }
+
+.lc-dash-kpi .lc-dash-value {
+    font-size: 1.65rem;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: .25rem;
+    word-break: break-word;
+}
+
+.lc-dash-chip {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #f3f4f6;
+    color: #4b5563;
+    flex-shrink: 0;
+}
+
+.lc-dash-chip-good {
+    background: #ecfdf3;
+    color: #067647;
+}
+
+.lc-dash-chip-warning {
+    background: #fffaeb;
+    color: #b54708;
+}
+
+.lc-dash-link {
+    color: var(--ink);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid #d1d5db;
+}
+
+    .lc-dash-link:hover {
+        border-bottom-color: var(--ink);
+        color: var(--ink);
+    }
+
+.lc-dash-toggle .btn {
+    border: 1px solid var(--border);
+    background: #fff;
+    color: var(--ink-muted);
+    font-size: .75rem;
+    font-weight: 600;
+    padding: .2rem .6rem;
+}
+
+    .lc-dash-toggle .btn.active {
+        background: #f3f4f6;
+        color: var(--ink);
+    }
+
+.lc-dash-chart {
+    position: relative;
+    height: 280px; /* includes the x-axis labels, so the card never scrolls */
+}
+
+.lc-dash-empty {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    color: var(--ink-muted);
+    font-size: .85rem;
+    background: #fafafa;
+    border-radius: 8px;
+}
+
+    .lc-dash-empty i {
+        font-size: 1.4rem;
+        opacity: .5;
+    }
+
+.lc-dash-table {
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+    .lc-dash-table table {
+        font-size: .82rem;
+        font-variant-numeric: tabular-nums;
+    }
+
+    .lc-dash-table th {
+        color: var(--ink-muted);
+        font-weight: 600;
+        font-size: .72rem;
+        border-bottom-color: var(--border);
+    }
+
+    .lc-dash-table td {
+        color: var(--ink);
+        border-bottom-color: #f3f4f6;
+    }
+
+    .lc-dash-table tfoot th {
+        color: var(--ink);
+        font-size: .82rem;
+        border-top: 1px solid var(--border);
+    }
+
+.lc-dash-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #f3f4f6;
+    color: #374151;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.lc-dash-dl > div {
+    display: flex;
+    justify-content: space-between;
+    padding: .45rem 0;
+    border-bottom: 1px solid #f3f4f6;
+    font-size: .85rem;
+}
+
+    .lc-dash-dl > div:last-child {
+        border-bottom: none;
+    }
+
+.lc-dash-dl dt {
+    font-weight: 400;
+    color: var(--ink-muted);
+}
+
+.lc-dash-dl dd {
+    margin: 0;
+    font-weight: 600;
+    color: var(--ink);
+}
+
+/* ── Phones (< 576px) ──
+   Smaller base font (most sizes in the app are rem, so they scale with it),
+   tighter tables and headers. Less important table columns are hidden per
+   table with Bootstrap's d-none d-sm/md/lg-table-cell classes. */
+@media (max-width: 575.98px) {
+    html {
+        font-size: 14px;
+    }
+
+    h4, .h4 {
+        font-size: 1.15rem;
+    }
+
+    h5, .h5 {
+        font-size: 1.05rem;
+    }
+
+    /* Overrides the inline padding and ps-4 / pe-4 used on many table cells */
+    .table > :not(caption) > * > * {
+        padding: .5rem .5rem !important;
+    }
+
+    .card-header.px-4,
+    .card-body.px-4,
+    .card-body.p-4 {
+        padding-left: .9rem !important;
+        padding-right: .9rem !important;
+    }
+
+    .container-fluid {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .lc-dash-card {
+        padding: .9rem 1rem;
+    }
+
+    .lc-dash-kpi .lc-dash-value {
+        font-size: 1.4rem;
+    }
+
+    .lc-dash-chart {
+        height: 230px;
+    }
+
+    /* Cells that are one line on bigger screens may wrap on phones */
+    .lc-wrap-xs {
+        white-space: normal !important;
+    }
+}
+
+/* Error summary boxes stay hidden until the form has errors */
+.validation-summary-valid {
+    display: none !important;
+}
+.validation-summary-errors ul {
+    margin: 0;
+    padding-left: 1.1rem;
+}
